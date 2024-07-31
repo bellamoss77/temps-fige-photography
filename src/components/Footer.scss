@@ -1,0 +1,50 @@
+@import url("https://use.typekit.net/efa7ivj.css");
+
+$cursiveFont: 'dream-big-wide', cursive;
+$sansSerifFont: 'arboria', sans-serif;
+$cream: rgb(250, 246, 219);
+$beigeAccent: rgb(217, 195, 162);
+$blueAccent: rgb(0, 90, 112);
+$forestGreenPrimary: rgb(0,88,42);
+$activeColor: rgb(255, 255, 255);
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+
+.footer {
+    height: 40px;
+    width: 100%;
+    display: block;
+    position: fixed;
+    bottom: 0;
+    background-color: $blueAccent;
+
+    .footer-content {
+        width: 100%;
+        @include flex(row, space-between, center);
+        font-family: $sansSerifFont;
+        font-size: 0.85rem;
+        color: $cream;
+
+        .address {
+            margin-left: 0.3rem;
+            text-align: left;
+        }
+
+        .copyright {
+            position: absolute;
+            transform: translateX(-50%);
+            left: 50%;
+        }
+
+        .remote-contact {
+            margin-right: 0.3rem;
+            text-align: right;
+        }
+    }
+}

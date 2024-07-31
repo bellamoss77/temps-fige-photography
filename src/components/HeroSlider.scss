@@ -1,0 +1,99 @@
+@import url("https://use.typekit.net/efa7ivj.css");
+
+$cursiveFont: 'dream-big-wide', cursive;
+$sansSerifFont: 'arboria', sans-serif;
+$cream: rgb(250, 246, 219);
+$beigeAccent: rgb(217, 195, 162);
+$blueAccent: rgb(0, 90, 112);
+$forestGreenPrimary: rgb(0,88,42);
+$activeColor: rgb(255, 255, 255);
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.hero-slider {
+    position: relative;
+    width: 100vw;
+    left: 0;
+    height: 90vh;
+    overflow: hidden;
+    align-self: center;
+    margin-top: 50px;
+
+    .slides {
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .slide {
+            flex: 1 0 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            width: 100%;
+            transition: opacity 1s ease-in-out;
+            @include flex(row, flex-end, flex-end);
+            padding: 1rem;
+            box-sizing: border-box;
+            color: $cream;
+            text-decoration: none;
+
+            .caption {
+                background: rgba(0, 0, 0, 0.5);
+                padding: 0.5rem 1rem;
+                border-radius: 0.5rem;
+                font-family: $sansSerifFont;
+                color: $cream;
+                font-size: 2.5rem;
+            }
+        }
+    }
+    .arrows {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        @include flex(row, space-between, center);
+        //transform: translateY(-50%);
+
+        .arrow {
+            cursor: pointer;
+            font-size: 2.5rem;
+            color: rgba(250, 246, 219, 0.7);
+            padding: 0 1rem;
+            user-select: none;
+            z-index: 10;
+
+            &:hover {
+                color: $cream;
+            }
+        }
+    }
+
+    .dots {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 0.5rem;
+
+        .dot {
+            width: 25px;
+            height: 25px;
+            background: rgba(250, 246, 219, 0.6);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+
+            &.active {
+                background: $cream;
+            }
+        }
+    }
+}

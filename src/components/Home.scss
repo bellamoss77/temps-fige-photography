@@ -1,0 +1,42 @@
+@import url("https://use.typekit.net/efa7ivj.css");
+
+$cursiveFont: 'dream-big-wide', cursive;
+$sansSerifFont: 'arboria', sans-serif;
+$cream: rgb(250, 246, 219);
+$beigeAccent: rgb(217, 195, 162);
+$blueAccent: rgb(0, 90, 112);
+$forestGreenPrimary: rgb(0,88,42);
+$activeColor: rgb(255, 255, 255);
+
+html {
+    background-color: rgb(250, 246, 219);
+}
+
+.homepage-content {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-color: $cream;
+    //padding-bottom: 25%;
+
+    .philosophy-quote,
+    .brand-philosophy {
+        margin: 50px 25px;
+        opacity: 0;
+    }
+
+    .philosophy-quote {
+        margin-top: 5%;
+        font-family: $cursiveFont;
+        font-size: 7rem;
+        color: $forestGreenPrimary;
+        line-height: 1.15;
+    }
+
+    .brand-philosophy {
+        font-family: $sansSerifFont;
+        margin: 10% 20%;
+        font-size: 3rem;
+        color: $blueAccent;
+    }
+}
