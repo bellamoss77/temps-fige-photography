@@ -54,7 +54,7 @@ const Navbar = () => {
                 <img src={logo} alt='Logo' />
             </div>
             <div className="navbar-links-container">
-                <NavLink exact to='/' activeClassName='active'>Home</NavLink>
+                <NavLink to='/' end>Home</NavLink>
                 <PortfolioDropdown />
                 <NavLink to='/about'>About</NavLink>
                 <NavLink to='/contact'>Contact Us</NavLink>
@@ -65,7 +65,7 @@ const Navbar = () => {
                 <div></div>
             </div>
             <div className="navbar-menu" ref={menuRef}>
-                <NavLink to='/' exact onClick={toggleMenu}>Home</NavLink>
+                <NavLink to='/' end onClick={toggleMenu}>Home</NavLink>
                 <NavLink to='/about' onClick={toggleMenu}>About</NavLink>
                 <NavLink to='/contact' onClick={toggleMenu}>Contact Us</NavLink>
                 <PortfolioDropdown />
