@@ -1,0 +1,50 @@
+@import url("https://use.typekit.net/efa7ivj.css");
+
+$cursiveFont: 'dream-big-wide', cursive;
+$sansSerifFont: 'arboria', sans-serif;
+$cream: rgb(250, 246, 219);
+$beigeAccent: rgb(217, 195, 162);
+$blueAccent: rgb(0, 90, 112);
+$forestGreenPrimary: rgb(0,88,42);
+$activeColor: rgb(255, 255, 255);
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.contact-us-page {
+    margin-top: 10%;
+    height: 100%;
+    width: 100vw;
+    @include flex(row, space-around, center);
+
+    .directions-text {
+        width: 50vw;
+        @include flex(column, center, center);
+
+        h1 {
+            font-family: $cursiveFont;
+            font-size: 5rem;
+            color: $forestGreenPrimary;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            font-family: $sansSerifFont;
+            width: 50%;
+            font-weight: 700;
+            font-size: 1.5rem;
+            line-height: 1.4;
+            color: $blueAccent;
+        }
+    }
+
+    .divider {
+        height: 100%;
+        width: 3px;
+        background: $forestGreenPrimary;
+    }
+}

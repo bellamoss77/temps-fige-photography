@@ -40,6 +40,8 @@ const Lightbox = ({ images, isOpen, onClose, startIndex }) => {
             } else if (e.key === 'Escape') {
                 e.preventDefault();
                 onClose();
+            } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                e.preventDefault();
             }
         };
 
