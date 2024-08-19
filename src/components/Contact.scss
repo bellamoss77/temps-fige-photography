@@ -16,7 +16,7 @@ $activeColor: rgb(255, 255, 255);
 }
 
 .contact-us-page {
-    margin-top: 10%;
+    margin-top: 5%;
     height: 100%;
     width: 100vw;
     @include flex(row, space-around, center);
@@ -42,9 +42,122 @@ $activeColor: rgb(255, 255, 255);
         }
     }
 
-    .divider {
-        height: 100%;
-        width: 3px;
-        background: $forestGreenPrimary;
+    div.divider {
+        height: 75vh;
+        width: 5px;
+        background: transparent;
+        border: 3px groove $forestGreenPrimary;
+        margin-top: 5%;
+        
+    }
+
+    .contact-form-container {
+        position: relative;
+        @include flex(column, space-around, center);
+        background-color: $blueAccent;
+        padding: 1rem;
+        height: auto;
+        width: 40%;
+        margin-top: 1rem;
+        
+        h2 {
+            font-family: $cursiveFont;
+            font-size: 4rem;
+            color: $cream;
+            margin-top: .5em;
+        }
+
+        p {
+            font-family: $sansSerifFont;
+            color: $cream;
+            font-size: 0.8rem;
+            font-style: italic;
+            //position: absolute;
+            align-self: flex-start;
+            margin-left: 12%;
+        }
+
+        form {
+            width: 100%;
+            @include flex(column, center, flex-start);
+            flex-shrink: 1;
+            height: 60vh;
+            margin-left: -35;
+            font-family: $sansSerifFont;
+            color: $cream;
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 0;
+            margin: 0;
+            
+            .form-group {
+                width: 100%;
+                @include flex(row, space-between, center);
+                margin: 1em 0;
+
+                input {
+                    height: 1.8rem;
+                    width: 18rem;
+                    font-family: $sansSerifFont;
+                    color: $blueAccent;
+                    font-size: 1rem;
+                    text-align: center;
+                }
+
+                textarea {
+                    width: 18rem;
+                    height: 5rem;
+                    font-family: $sansSerifFont;
+                    color: $blueAccent;
+                    font-size: 1rem;
+                }
+            }
+
+            button {
+                text-align: center;
+                align-self: center;
+                border-radius: 10px;
+                background-color: $cream;
+                color: $forestGreenPrimary;
+                font-weight: 600;
+                padding: 0.8rem 2rem;
+                font-size: 1.2rem;
+                font-family: $sansSerifFont;
+                border: none;
+                cursor: pointer;
+                transition: transform 0.1s ease;
+
+                &:hover {
+                    background-color: darken($beigeAccent, 10%);
+                    color: darken($forestGreenPrimary, 10%);
+                }
+
+                &:active {
+                    transform: translateY(3px);
+                }
+
+                &.sending {
+                    background-color: $forestGreenPrimary;
+                    border: 3px solid $cream;
+                    color: $cream;
+                    font-style: italic;
+                    cursor: not-allowed;
+                }
+            }
+
+            .success-msg {
+                color: $forestGreenPrimary;
+                font-size: 1rem;
+                margin-top: 1rem;
+                font-weight: bold;
+            }
+
+            .error-msg {
+                color: red;
+                font-size: 1rem;
+                margin-top: 1rem;
+                font-weight: bold;
+            }
+        }
     }
 }

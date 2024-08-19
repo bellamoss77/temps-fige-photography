@@ -13,6 +13,9 @@ const Contact = () => {
         message: ''
     });
 
+    const [isSending, setIsSending] = useState(false);
+    const [sendStatus, setSendStatus] = useState(null)
+
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -22,6 +25,8 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setIsSending(true);
+        setSendStatus(null);
 
         const templateParams = {
             to_name: 'Maggie',
@@ -33,7 +38,8 @@ const Contact = () => {
 
         emailjs.send('service_zdo7lp8', 'template_o3tqtym', templateParams, 'M6qG3Ohjnk7js250h')
         .then((results) => {
-            alert('Successfully Sent!');
+            setIsSending(false);
+            setSendStatus('success');
             setFormData({
                 firstName: '',
                 lastName: '',
@@ -42,7 +48,8 @@ const Contact = () => {
                 message: ''
             });
         }, (error) => {
-            alert(`Message failed to send. {<FontAwesomeIcon icon={faSadTear} />} Please try again.`);
+            setIsSending(false);
+            setSendStatus('error');
         });
     };
 
@@ -55,9 +62,10 @@ const Contact = () => {
             <div className="divider"></div>
             <div className="contact-form-container">
                 <h2>Contact Us</h2>
+                <p>*Required Field</p>
                 <form onSubmit={handleSubmit} className="contact-form">
                     <div className="form-group">
-                        <label htmlFor="firstName">First Name</label>
+                        <label htmlFor="firstName">*First Name</label>
                         <input
                             type="text"
                             id="firstName"
@@ -68,7 +76,7 @@ const Contact = () => {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="lastName">Last Name</label>
+                        <label htmlFor="lastName">*Last Name</label>
                         <input
                             type="text"
                             id="lastName"
@@ -89,7 +97,7 @@ const Contact = () => {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="email">*Email</label>
                         <input
                             type="text"
                             id="email"
@@ -100,7 +108,7 @@ const Contact = () => {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="message">Message</label>
+                        <label htmlFor="message">*Message</label>
                         <textarea
                             id="message"
                             name="message"
@@ -109,8 +117,12 @@ const Contact = () => {
                             required
                         ></textarea>
                     </div>
-                    <button type="submit">Submit</button>
+                    <button type="submit" className={isSending ? 'sending' : ''} disabled={isSending}>
+                        {isSending ? 'Sending...' : 'Submit'}
+                    </button>
                 </form>
+                {sendStatus === 'success' && <p className="success-msg">Message successfully sent!</p>}
+                {sendStatus === 'error' && <p className="error-msg">Message failed to send. <FontAwesomeIcon icon={faSadTear} /> Please try again.</p>}
             </div>
         </div>
     );

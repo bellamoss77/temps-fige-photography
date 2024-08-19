@@ -107,12 +107,12 @@ const HeroSlider = () => {
         <div className="hero-slider" ref={sliderRef}>
             <div className="slides">
                 {slides.map((slide, index) => (
-                    <NavLink
+                    <NavLink 
                         key={slide.id}
                         to={slide.link}
-                        className='slide'
                         ref={el => slideRefs.current[index] = el}
-                        style={{ backgroundImage: `url(${slide.src})`, opacity: index === 0 ? 1 : 0 }}
+                        className='slide'
+                        style={{ backgroundImage: `url(${slide.src})`, opacity: index === currentSlide ? 1 : 0, pointerEvents: index === currentSlide ? 'auto' : 'none' }}
                     >
                         <div className="caption">{slide.caption}</div>
                     </NavLink>

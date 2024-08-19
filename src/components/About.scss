@@ -1,0 +1,89 @@
+@import url("https://use.typekit.net/efa7ivj.css");
+
+$cursiveFont: 'dream-big-wide', cursive;
+$sansSerifFont: 'arboria', sans-serif;
+$cream: rgb(250, 246, 219);
+$beigeAccent: rgb(217, 195, 162);
+$blueAccent: rgb(0, 90, 112);
+$forestGreenPrimary: rgb(0,88,42);
+$activeColor: rgb(255, 255, 255);
+
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+.about-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: $cream;
+    padding: 2rem 0;
+    @include flex(column, center, center);
+    overflow-y: auto;
+
+    .about-contents {
+        width: 100%;
+        max-width: 1200px;
+        margin-top: 50px;
+        @include flex(column, center, center);
+        gap: 2rem;
+        padding: 1rem;
+        margin-bottom: 2rem;
+
+        .img-container {
+            @include flex(row, center, center);
+            flex-wrap: wrap;
+            flex-shrink: 1;
+            gap: 1rem
+        }
+
+        .text-content {
+            width: 75vw;
+
+            h2 {
+                font-family: $cursiveFont;
+                font-size: 3rem;
+                color: $forestGreenPrimary;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                font-family: $sansSerifFont;
+                line-height: 1.5;
+                font-size: 1.2rem;
+                font-weight: 550;
+                color: $blueAccent;
+                margin-bottom: 2rem;
+
+                .italic {
+                    font-style: italic;
+                }
+            }
+        }
+
+        .contact-button {
+            font-family: $sansSerifFont;
+            //font-weight: 900;
+            font-size: 2rem;
+            //text-decoration: none;
+            background-color: $forestGreenPrimary;
+            color: $cream;
+            //padding: 1rem;
+            border-radius: 15px;
+            cursor: pointer;
+            //box-shadow: 2px 4px 0px rgba(0,0,0,0.4);
+            transition: transform 0.2s ease-in-out;
+
+            /*&:hover {
+                background-color: darken($forestGreenPrimary, 10%);
+            } */
+
+            &:active {
+                transform: scale(0.5) !important;
+                //box-shadow: 1px 2px 0px rgba(0,0,0,0.4);
+            }
+        }
+    }
+}

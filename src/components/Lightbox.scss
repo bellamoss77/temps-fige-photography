@@ -28,9 +28,9 @@ $activeColor: rgb(255, 255, 255);
 
 .lightbox {
     position: relative;
-    max-width: 100%;
-    max-height: 100%;
-    background-color: $cream;
+    max-width: 90%;
+    max-height: 90%;
+    background-color: rgba(0,0,0,0.7);
     outline: none;
     @include flex(column, center, center);
     z-index: 10001;
@@ -39,7 +39,7 @@ $activeColor: rgb(255, 255, 255);
     &-content {
         @include flex(column, center, center);
         position: relative;
-        object-fit: contain !important;
+        //object-fit: contain !important;
 
         button {
             cursor: pointer;
@@ -87,35 +87,35 @@ $activeColor: rgb(255, 255, 255);
         }
 
         .lightbox-img {
-            max-width: 95vw;
-            max-height: 95vh;
+            max-width: 100%;
+            max-height: 100%;
             @include flex(column, center, center);
             transform-origin: center;
             object-fit: contain !important;
             position: relative;
 
             img {
-                max-width: 100%;
-                max-height: 100%;
+                max-width: 95vw;
+                max-height: 95vh;
                 object-fit: contain !important;
-                width: auto;
-                height: auto;
-                margin: auto;
+                //width: auto;
+                //height: auto;
+                //margin: auto;
             }
         }
 
         .lightbox-caption {
             position: absolute;
             bottom: 2rem;
-            left: 1rem;
+            right: 1rem;
             margin-top: 10px;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0.4);
             color: $cream;
-            padding: 0.75rem;
+            padding: 0.5rem;
             border-radius: 15px;
             font-family: $sansSerifFont;
             font-weight: 500;
-            font-size: 1.2rem;
+            font-size: 1rem;
             max-width: calc(100% - 2rem);
             z-index: 10002;
         }
